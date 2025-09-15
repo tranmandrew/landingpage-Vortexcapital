@@ -1,25 +1,25 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { User, Linkedin, Mail, Award } from "lucide-react"
-
+import Image from "next/image"
 const teamMembers = [
   {
-    name: "John Smith",
-    position: "Managing Partner",
+    name: "Andy Lang",
+    position: "Vietnam Country Manager",
     department: "Investment Strategy",
-    bio: "Over 15 years of experience in Southeast Asian markets and strategic partnerships. Former investment banker with expertise in cross-border transactions.",
-    image: "/placeholder-team-member.jpg",
-    linkedin: "#",
+    bio: "Over 20+ years of experience in Southeast Asian markets and strategic partnerships.",
+    image: "/AndyLangWhite.png",
+    linkedin: "https://www.linkedin.com/in/andyhlang/",
     email: "contact@vortexcapital.sg",
     specialties: ["Vietnam Market", "Investment Strategy", "Cross-border M&A"],
     achievements: "Led $200M+ in successful joint ventures"
   },
   {
-    name: "Sarah Chen",
-    position: "Head of Due Diligence",
-    department: "Risk Management",
-    bio: "Expert in Vietnamese legal framework and regulatory compliance. Former partner at leading Singapore law firm specializing in ASEAN investments.",
-    image: "/placeholder-team-member.jpg",
+    name: "Evan Chin",
+    position: "Founder",
+    department: "General Partner",
+    bio: "Singaporean market expert with 15+ years of experience in Southeast Asian markets and strategic partnerships.",
+    image: "/EvanChin.png",
     linkedin: "#",
     email: "contact@vortexcapital.sg",
     specialties: ["Legal Due Diligence", "Regulatory Compliance", "Asset Verification"],
@@ -69,16 +69,18 @@ export function Team() {
                 <CardContent className="p-0">
                   {/* Profile Image */}
                   <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <User className="h-24 w-24 text-primary/40" />
-                    </div>
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
                     <div className="absolute top-4 right-4">
                       <Badge variant="secondary" className="text-xs">
-                        {member.department}
+                      {member.department}
                       </Badge>
                     </div>
-                  </div>
-
+                    </div>
                   {/* Profile Content */}
                   <div className="p-6 space-y-4">
                     <div className="text-center">
