@@ -122,62 +122,74 @@ export function Header() {
         </div>
       </nav>
       {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden">
-          {/* Backdrop */}
-          <div
-            className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"
-            onClick={() => setMobileMenuOpen(false)}
-          />
-          {/* Menu Panel */}
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm border-l border-border shadow-2xl">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8">
-              <Link href="#" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-                <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
-                  Vortex Capital
-                </span>
-              </Link>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-foreground hover:bg-muted transition-colors min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
-                onClick={() => setMobileMenuOpen(false)}
-                aria-label="Close navigation menu"
-              >
-                <X className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-
-            {/* Navigation Links */}
-            <div className="space-y-2 mb-8">
-              {navigation.map((item) => {
-                const isActive = activeSection === item.href.slice(1)
-                return (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`block rounded-lg px-4 py-3 text-base font-semibold transition-colors ${
-                      isActive
-                        ? 'text-primary bg-primary/10'
-                        : 'text-foreground hover:text-primary hover:bg-muted'
-                    }`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              })}
-            </div>
-
-            {/* CTA Button */}
-            <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="#contact-form" onClick={() => setMobileMenuOpen(false)}>
-                Partner With Us
-              </Link>
-            </Button>
+      <div className={`lg:hidden ${mobileMenuOpen ? '' : 'pointer-events-none'}`}>
+        {/* Backdrop */}
+        <div
+          className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
+            mobileMenuOpen ? 'opacity-100' : 'opacity-0'
+          }`}
+          onClick={() => setMobileMenuOpen(false)}
+        />
+        {/* Menu Panel */}
+        <div className={`fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out ${
+          mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}>
+          {/* Header */}
+          <div className="flex items-center justify-between mb-8">
+            <Link href="#" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
+              <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                Vortex Capital
+              </span>
+            </Link>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-foreground hover:bg-muted transition-colors min-h-[44px] min-w-[44px] inline-flex items-center justify-center"
+              onClick={() => setMobileMenuOpen(false)}
+              aria-label="Close navigation menu"
+            >
+              <X className="h-6 w-6" aria-hidden="true" />
+            </button>
           </div>
+
+          {/* Navigation Links */}
+          <div className="space-y-2 mb-8">
+            {navigation.map((item, index) => {
+              const isActive = activeSection === item.href.slice(1)
+              return (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className={`block rounded-lg px-4 py-3 text-base font-semibold transition-all duration-200 transform ${
+                    mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+                  } ${
+                    isActive
+                      ? 'text-primary bg-primary/10'
+                      : 'text-foreground hover:text-primary hover:bg-muted'
+                  }`}
+                  style={{
+                    transitionDelay: mobileMenuOpen ? `${index * 50 + 150}ms` : '0ms'
+                  }}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
+          </div>
+
+          {/* CTA Button */}
+          <Button asChild className={`w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-200 transform ${
+            mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
+          }`}
+          style={{
+            transitionDelay: mobileMenuOpen ? `${navigation.length * 50 + 150}ms` : '0ms'
+          }}>
+            <Link href="#contact-form" onClick={() => setMobileMenuOpen(false)}>
+              Partner With Us
+            </Link>
+          </Button>
         </div>
-      )}
+      </div>
     </header>
   )
 }
