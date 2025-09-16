@@ -52,6 +52,7 @@ export function Hero() {
               <div className="text-center">
                 <div className="text-2xl font-bold text-primary">$75M+</div>
                 <div className="text-xs text-muted-foreground">Assets Under Management</div>
+                <div className="text-[10px] text-muted-foreground/70 mt-1">*Historical figure</div>
               </div>
             </div>
           </div>

@@ -54,6 +54,17 @@ export function Stats() {
             ))}
           </dl>
         </div>
+
+        {/* Disclaimer */}
+        <div className="mt-16 text-center">
+          <div className="max-w-2xl mx-auto bg-muted/50 rounded-xl p-6 border border-border/50">
+            <p className="text-xs text-muted-foreground leading-relaxed">
+              <strong>Disclaimer:</strong> Past performance is not indicative of future results. All investments involve risk of loss.
+              The metrics shown represent historical performance of completed partnerships and do not guarantee future returns.
+              Vortex Capital facilitates investment opportunities and does not provide investment advice.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   )
