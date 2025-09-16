@@ -18,6 +18,7 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
 
+
   // Handle scroll effects
   useEffect(() => {
     const handleScroll = () => {
@@ -122,16 +123,17 @@ export function Header() {
         </div>
       </nav>
       {/* Mobile menu */}
-      <div className={`lg:hidden ${mobileMenuOpen ? '' : 'pointer-events-none'}`}>
+      <div className={`lg:hidden transition-all duration-300 ${mobileMenuOpen ? 'visible opacity-100' : 'invisible opacity-0 pointer-events-none'}`}>
         {/* Backdrop */}
         <div
           className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${
             mobileMenuOpen ? 'opacity-100' : 'opacity-0'
           }`}
           onClick={() => setMobileMenuOpen(false)}
+          aria-label="Close navigation menu"
         />
         {/* Menu Panel */}
-        <div className={`fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out ${
+        <div className={`fixed inset-y-0 right-0 z-50 w-full max-w-sm overflow-y-auto bg-background px-6 py-6 border-l border-border shadow-2xl transition-transform duration-300 ease-in-out ${
           mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {/* Header */}
