@@ -333,7 +333,8 @@ export function ContactForm() {
                                   <SelectItem value="5m-10m">$5M - $10M</SelectItem>
                                   <SelectItem value="10m-25m">$10M - $25M</SelectItem>
                                   <SelectItem value="25m-50m">$25M - $50M</SelectItem>
-                                  <SelectItem value="over-50m">Over $50M</SelectItem>
+                                  <SelectItem value="50m-75m">$50M - $75M</SelectItem>
+                                  <SelectItem value="over-75m">Over $75M</SelectItem>
                                 </SelectContent>
                               </Select>
                               <FormMessage />

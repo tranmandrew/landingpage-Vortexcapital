@@ -3,27 +3,27 @@ import { TrendingUp, DollarSign, Shield, Target } from "lucide-react"
 
 const stats = [
   {
-    value: "150+",
-    label: "Companies Vetted",
-    description: "Comprehensive due diligence completed",
+    value: "200+",
+    label: "Companies Assessed",
+    description: "Comprehensive due diligence completed across Southeast Asia",
     icon: TrendingUp
   },
   {
-    value: "$50M+",
+    value: "$75M+",
     label: "Assets Under Management",
-    description: "Total capital deployed across partnerships",
+    description: "Total capital deployed across active partnerships",
     icon: DollarSign
   },
   {
-    value: "35%",
-    label: "Qualification Rate",
-    description: "Companies meeting our rigorous standards",
+    value: "28%",
+    label: "Selection Rate",
+    description: "Companies meeting our institutional-grade standards",
     icon: Shield
   },
   {
-    value: "$2.5M",
-    label: "Average Deal Size",
-    description: "Optimal range for risk-adjusted returns",
+    value: "$3.2M",
+    label: "Average Investment",
+    description: "Optimal size for sustainable growth and returns",
     icon: Target
   },
 ]

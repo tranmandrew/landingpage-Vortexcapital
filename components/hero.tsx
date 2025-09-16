@@ -50,7 +50,7 @@ export function Hero() {
             </div>
             <div className="absolute -top-4 -right-4 bg-white rounded-lg shadow-lg p-4 border">
               <div className="text-center">
-                <div className="text-2xl font-bold text-primary">$50M+</div>
+                <div className="text-2xl font-bold text-primary">$75M+</div>
                 <div className="text-xs text-muted-foreground">Assets Under Management</div>
               </div>
             </div>

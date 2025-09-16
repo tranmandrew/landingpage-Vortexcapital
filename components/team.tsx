@@ -26,26 +26,26 @@ const teamMembers = [
     achievements: "Vetted 100+ Vietnamese companies"
   },
   {
-    name: "Michael Nguyen",
-    position: "Vietnam Operations Director",
-    department: "Local Operations",
-    bio: "Native Vietnamese speaker with deep local market knowledge and extensive network of business contacts across key industries.",
-    image: "/placeholder-team-member.jpg",
+    name: "Li Wei",
+    position: "China Market Director",
+    department: "China Operations",
+    bio: "Native Mandarin speaker with extensive experience in Chinese investment markets and cross-border transactions between China and Southeast Asia.",
+    image: "/professional-asian-businessman-headshot.jpg",
     linkedin: "#",
     email: "contact@vortexcapital.sg",
-    specialties: ["Local Market Intelligence", "Business Development", "Cultural Bridge"],
-    achievements: "Built network of 500+ Vietnamese companies"
+    specialties: ["China Market Entry", "Investment Sourcing", "Regulatory Navigation"],
+    achievements: "Facilitated $100M+ in China-ASEAN investments"
   },
   {
-    name: "David Lee",
-    position: "Chief Financial Officer",
-    department: "Financial Operations",
-    bio: "CPA with expertise in international finance and structured investments. Former senior manager at Big Four accounting firm with ASEAN focus.",
-    image: "/placeholder-team-member.jpg",
+    name: "Ahmad Rahman",
+    position: "Malaysia Country Manager",
+    department: "Malaysia Operations",
+    bio: "Malaysian investment professional with deep understanding of Kuala Lumpur financial markets and expertise in Islamic finance structures.",
+    image: "/professional-businessman-headshot.png",
     linkedin: "#",
     email: "contact@vortexcapital.sg",
-    specialties: ["Financial Analysis", "Structured Finance", "Tax Optimization"],
-    achievements: "Optimized $50M+ in tax-efficient structures"
+    specialties: ["Islamic Finance", "Malaysia Regulations", "Strategic Partnerships"],
+    achievements: "Established 200+ Malaysian institutional connections"
   }
 ]
 
@@ -63,10 +63,10 @@ export function Team() {
         </div>
 
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
-          <div className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
+          <div className="grid max-w-xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4 justify-items-center">
             {teamMembers.map((member, index) => (
-              <Card key={member.name} className="hover:shadow-lg transition-shadow border-primary/20 overflow-hidden">
-                <CardContent className="p-0">
+              <Card key={member.name} className="hover:shadow-lg transition-shadow border-primary/20 overflow-hidden w-full max-w-sm h-full">
+                <CardContent className="p-0 h-full flex flex-col">
                   {/* Profile Image */}
                   <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-accent/10 relative overflow-hidden">
                     <Image
@@ -77,23 +77,23 @@ export function Team() {
                     />
                     <div className="absolute top-4 right-4">
                       <Badge variant="secondary" className="text-xs">
-                      {member.department}
+                        {member.department}
                       </Badge>
                     </div>
-                    </div>
+                  </div>
                   {/* Profile Content */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-6 space-y-4 flex-1 flex flex-col">
                     <div className="text-center">
                       <h3 className="text-xl font-semibold text-foreground">{member.name}</h3>
                       <p className="text-sm font-medium text-primary">{member.position}</p>
                     </div>
 
-                    <p className="text-sm text-muted-foreground leading-relaxed">{member.bio}</p>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{member.bio}</p>
 
                     {/* Specialties */}
                     <div className="space-y-2">
                       <p className="text-xs font-medium text-muted-foreground">Specialties</p>
-                      <div className="flex flex-wrap gap-1">
+                      <div className="flex flex-wrap gap-1 justify-center">
                         {member.specialties.map((specialty, idx) => (
                           <Badge key={idx} variant="outline" className="text-xs">
                             {specialty}
@@ -111,7 +111,7 @@ export function Team() {
                     </div>
 
                     {/* Contact */}
-                    <div className="flex items-center justify-center gap-4 pt-2 border-t border-border">
+                    <div className="flex items-center justify-center gap-4 pt-2 border-t border-border mt-auto">
                       <a
                         href={`mailto:${member.email}`}
                         className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors"
@@ -137,16 +137,16 @@ export function Team() {
         {/* Team Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
-            <div className="text-3xl font-bold text-primary mb-2">50+</div>
+            <div className="text-3xl font-bold text-primary mb-2">65+</div>
             <p className="text-sm text-muted-foreground">Years Combined Experience</p>
           </div>
           <div>
-            <div className="text-3xl font-bold text-primary mb-2">3</div>
+            <div className="text-3xl font-bold text-primary mb-2">4</div>
             <p className="text-sm text-muted-foreground">Countries of Expertise</p>
           </div>
           <div>
-            <div className="text-3xl font-bold text-primary mb-2">500+</div>
-            <p className="text-sm text-muted-foreground">Vietnamese Business Contacts</p>
+            <div className="text-3xl font-bold text-primary mb-2">750+</div>
+            <p className="text-sm text-muted-foreground">Regional Business Network</p>
           </div>
         </div>
 

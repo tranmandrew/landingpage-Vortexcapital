@@ -20,7 +20,7 @@ const revenueStreams = [
     description: "Performance-based fees aligned with successful capital deployment",
     structure: "2%-5% of total capital raised",
     benefit: "Scales with deal size and ensures aligned incentives",
-    highlight: "$20K-$50K per $1M raised",
+    highlight: "$64K-$160K per deal",
     color: "bg-green-500"
   },
   {
