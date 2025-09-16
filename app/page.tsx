@@ -1,7 +1,6 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
-import { ValueProposition } from "@/components/value-proposition"
-import { Process } from "@/components/process"
+import { PartnershipApproach } from "@/components/partnership-approach"
 import { FundingDiagram } from "@/components/funding-diagram"
 import { PlatformStructure } from "@/components/platform-structure"
 import { RevenueModel } from "@/components/revenue-model"
@@ -16,8 +15,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <ValueProposition />
-      <Process />
+      <PartnershipApproach />
       <FundingDiagram />
       <PlatformStructure />
       <RevenueModel />
