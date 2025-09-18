@@ -161,16 +161,11 @@ export function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className={`block rounded-lg px-4 py-3 text-base font-semibold transition-all duration-200 transform ${
-                    mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-                  } ${
+                  className={`block rounded-lg px-4 py-3 text-base font-semibold transition-all duration-300 ease-out transform opacity-100 translate-y-0 ${
                     isActive
                       ? 'text-primary bg-primary/10'
                       : 'text-foreground hover:text-primary hover:bg-muted'
                   }`}
-                  style={{
-                    transitionDelay: mobileMenuOpen ? `${index * 50 + 150}ms` : '0ms'
-                  }}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
@@ -180,12 +175,7 @@ export function Header() {
           </div>
 
           {/* CTA Button */}
-          <Button asChild className={`w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-200 transform ${
-            mobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-          }`}
-          style={{
-            transitionDelay: mobileMenuOpen ? `${navigation.length * 50 + 150}ms` : '0ms'
-          }}>
+          <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 ease-out transform opacity-100 translate-y-0">
             <Link href="#contact-form" onClick={() => setMobileMenuOpen(false)}>
               Partner With Us
             </Link>
