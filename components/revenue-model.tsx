@@ -37,8 +37,11 @@ const revenueStreams = [
 
 export function RevenueModel() {
   return (
-    <section className="py-24 sm:py-32 bg-muted/30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-neutral-100 relative">
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.1)_2px,rgba(0,0,0,0.1)_4px)] bg-[length:100%_30px]"></div>
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Diversified Revenue Model
@@ -54,14 +57,11 @@ export function RevenueModel() {
               <Card key={stream.title} className="hover:shadow-lg transition-shadow border-primary/20 h-full">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between mb-3">
-                    <div className={`w-12 h-12 rounded-full ${stream.color} flex items-center justify-center`}>
-                      <stream.icon className="h-6 w-6 text-white" />
-                    </div>
+                    <CardTitle className="text-xl">{stream.title}</CardTitle>
                     <Badge variant="secondary" className="text-xs">
                       {stream.timing}
                     </Badge>
                   </div>
-                  <CardTitle className="text-xl">{stream.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 flex-1 flex flex-col">
                   <p className="text-sm text-muted-foreground leading-relaxed flex-shrink-0">

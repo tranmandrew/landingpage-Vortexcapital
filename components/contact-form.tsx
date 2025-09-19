@@ -70,7 +70,7 @@ export function ContactForm() {
   }
 
   return (
-    <section id="contact-form" className="py-24 sm:py-32 bg-gradient-to-br from-primary/5 via-background to-accent/5">
+    <section id="contact-form" className="py-16 sm:py-20 bg-gradient-to-br from-primary/5 via-background to-accent/5">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">

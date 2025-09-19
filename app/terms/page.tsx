@@ -59,23 +59,46 @@ export default function TermsOfServicePage() {
   const [activeSection, setActiveSection] = useState("")
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY
+      const windowHeight = window.innerHeight
+      const documentHeight = document.documentElement.scrollHeight
+
+      // Check if we're at the bottom of the page
+      if (scrollPosition + windowHeight >= documentHeight - 50) {
+        // Set the last section as active when at bottom
+        const lastSection = sections[sections.length - 1]
+        if (lastSection) {
+          setActiveSection(lastSection.id)
+        }
+        return
+      }
+
+      // Normal intersection logic
+      let currentSection = ''
+      sections.forEach((section) => {
+        const element = document.getElementById(section.id)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          // Check if section is in viewport (with some offset for header)
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = section.id
           }
-        })
-      },
-      { rootMargin: "-10% 0px -80% 0px", threshold: 0.1 }
-    )
+        }
+      })
 
-    sections.forEach((section) => {
-      const element = document.getElementById(section.id)
-      if (element) observer.observe(element)
-    })
+      if (currentSection) {
+        setActiveSection(currentSection)
+      }
+    }
 
-    return () => observer.disconnect()
+    // Initial check
+    handleScroll()
+
+    // Add scroll listener
+    window.addEventListener('scroll', handleScroll, { passive: true })
+
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollToSection = (sectionId: string) => {
@@ -282,6 +305,84 @@ export default function TermsOfServicePage() {
                 </div>
               </section>
 
+              <section id="confidentiality" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">7. Confidentiality and Non-Disclosure</h2>
+
+                <div id="confidential-information" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">7.1 Confidential Information</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    "Confidential Information" includes all non-public, proprietary information disclosed by either party, including but not limited to business plans, financial information, client data, investment opportunities, due diligence materials, and proprietary methodologies.
+                  </p>
+                </div>
+
+                <div id="confidentiality-obligations" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">7.2 Confidentiality Obligations</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">Both parties agree to:</p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                    <li>Maintain strict confidentiality of all Confidential Information</li>
+                    <li>Use Confidential Information solely for the purposes of the business relationship</li>
+                    <li>Not disclose Confidential Information to third parties without written consent</li>
+                    <li>Return or destroy Confidential Information upon termination</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section id="intellectual-property" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">8. Intellectual Property Rights</h2>
+
+                <div id="our-ip" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">8.1 Our Intellectual Property</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    All intellectual property rights in our platform, services, content, trademarks, and methodologies remain our exclusive property. You are granted a limited, non-exclusive license to use our services solely as permitted under these Terms.
+                  </p>
+                </div>
+
+                <div id="user-content" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">8.2 User Content</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    You retain ownership of any content you provide to us, but grant us a license to use such content in connection with providing our services. You represent that you have all necessary rights to provide such content.
+                  </p>
+                </div>
+              </section>
+
+              <section id="data-protection" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">9. Data Protection and Privacy</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We are committed to protecting your personal data and privacy. Our collection, use, and disclosure of personal information is governed by our Privacy Policy, which is incorporated into these Terms by reference.
+                </p>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  We implement appropriate technical and organizational measures to ensure the security of your personal data and comply with applicable data protection laws, including Singapore's Personal Data Protection Act (PDPA).
+                </p>
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <p className="text-blue-800 text-sm">
+                    <strong>Note:</strong> For detailed information about our data practices, please review our Privacy Policy available on our website.
+                  </p>
+                </div>
+              </section>
+
+              <section id="regulatory-compliance" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">10. Regulatory Compliance</h2>
+
+                <div id="regulatory-framework" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">10.1 Regulatory Framework</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Vortex Capital operates under Singapore's regulatory framework and complies with applicable financial services regulations. We maintain appropriate licenses and registrations as required by the Monetary Authority of Singapore (MAS).
+                  </p>
+                </div>
+
+                <div id="compliance-obligations" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">10.2 Compliance Obligations</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">You agree to:</p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                    <li>Comply with all applicable laws and regulations in your jurisdiction</li>
+                    <li>Provide accurate information for compliance purposes</li>
+                    <li>Submit to necessary due diligence and verification procedures</li>
+                    <li>Report any material changes in your circumstances</li>
+                    <li>Cooperate with regulatory inquiries as required</li>
+                  </ul>
+                </div>
+              </section>
+
               <section id="disclaimers" className="mb-8">
                 <h2 className="text-2xl font-semibold text-foreground mb-4">11. Disclaimers and Limitations</h2>
 
@@ -308,6 +409,111 @@ export default function TermsOfServicePage() {
                       <li>NO GUARANTEE OF INVESTMENT RETURNS IS PROVIDED</li>
                     </ul>
                   </div>
+                </div>
+              </section>
+
+              <section id="limitation-liability" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">12. Limitation of Liability</h2>
+
+                <div id="liability-limitations" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">12.1 Liability Limitations</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    To the maximum extent permitted by applicable law, Vortex Capital shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    Our total liability in connection with any claim arising out of or relating to these Terms or our services shall not exceed the amount of fees paid by you to us in the twelve (12) months preceding the event giving rise to the claim.
+                  </p>
+                </div>
+
+                <div id="excluded-damages" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">12.2 Excluded Damages</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">We are not liable for damages resulting from:</p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                    <li>Investment losses or underperformance</li>
+                    <li>Market volatility or economic conditions</li>
+                    <li>Third-party actions or failures</li>
+                    <li>Force majeure events</li>
+                    <li>Your failure to follow our recommendations or procedures</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section id="indemnification" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">13. Indemnification</h2>
+                <p className="text-muted-foreground leading-relaxed mb-4">
+                  You agree to indemnify, defend, and hold harmless Vortex Capital, its affiliates, and their respective officers, directors, employees, and agents from and against any claims, damages, losses, costs, and expenses (including reasonable attorney fees) arising from or relating to:
+                </p>
+                <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                  <li>Your use of our services</li>
+                  <li>Your violation of these Terms</li>
+                  <li>Your violation of any applicable laws or regulations</li>
+                  <li>Any information or content you provide</li>
+                  <li>Your investment decisions and their consequences</li>
+                </ul>
+              </section>
+
+              <section id="termination" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">14. Termination</h2>
+
+                <div id="termination-rights" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">14.1 Termination Rights</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Either party may terminate these Terms and your access to our services at any time, with or without cause, upon written notice. We may also suspend or terminate your access immediately if you violate these Terms.
+                  </p>
+                </div>
+
+                <div id="effect-termination" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">14.2 Effect of Termination</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">Upon termination:</p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-1 ml-4">
+                    <li>Your right to access our services will cease immediately</li>
+                    <li>Existing investment commitments may continue subject to separate agreements</li>
+                    <li>Confidentiality obligations will survive termination</li>
+                    <li>Outstanding fees and obligations remain payable</li>
+                  </ul>
+                </div>
+              </section>
+
+              <section id="dispute-resolution" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">15. Dispute Resolution</h2>
+
+                <div id="governing-law" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">15.1 Governing Law</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    These Terms shall be governed by and construed in accordance with the laws of Singapore, without regard to its conflict of law principles.
+                  </p>
+                </div>
+
+                <div id="dispute-process" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">15.2 Dispute Resolution Process</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">
+                    Any disputes arising from these Terms shall first be addressed through good faith negotiations. If unsuccessful, disputes shall be resolved through binding arbitration under the Singapore International Arbitration Centre (SIAC) rules.
+                  </p>
+                </div>
+
+                <div id="jurisdiction" className="mb-6">
+                  <h3 className="text-xl font-semibold text-foreground mb-3">15.3 Jurisdiction</h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    You agree to submit to the exclusive jurisdiction of the courts of Singapore for any matters not subject to arbitration.
+                  </p>
+                </div>
+              </section>
+
+              <section id="general-provisions" className="mb-8">
+                <h2 className="text-2xl font-semibold text-foreground mb-4">16. General Provisions</h2>
+                <div className="space-y-4">
+                  <p className="text-muted-foreground leading-relaxed">
+                    <strong>Entire Agreement:</strong> These Terms constitute the entire agreement between you and Vortex Capital regarding the subject matter herein.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    <strong>Severability:</strong> If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    <strong>Amendment:</strong> We may modify these Terms at any time by posting the updated Terms on our website. Your continued use constitutes acceptance of such modifications.
+                  </p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    <strong>Assignment:</strong> You may not assign your rights under these Terms without our prior written consent. We may assign our rights and obligations without restriction.
+                  </p>
                 </div>
               </section>
 

@@ -1,9 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { TrendingUp, Shield, Globe, Target } from "lucide-react"
 
 const partnershipApproach = [
   {
-    icon: TrendingUp,
     title: "Strategic Joint Ventures",
     why: "Form powerful partnerships that leverage complementary strengths and accelerate market penetration in Vietnam.",
     how: "We conduct comprehensive legal due diligence, financial qualification, and asset verification of Vietnamese companies before structuring project-specific subsidiaries.",
@@ -11,7 +9,6 @@ const partnershipApproach = [
     details: ["Legal compliance verification", "Financial health assessment", "Partnership structuring", "Asset verification"]
   },
   {
-    icon: Shield,
     title: "Asset-Backed Security & Risk Management",
     why: "Vietnamese companies pledge real assets (land, equipment, inventory) as collateral while each investment operates through dedicated subsidiaries, protecting your portfolio.",
     how: "We establish subsidiary formations with asset collateral arrangements and implement comprehensive risk isolation setups with ongoing performance monitoring.",
@@ -19,27 +16,35 @@ const partnershipApproach = [
     details: ["Asset collateral arrangements", "Risk isolation setup", "Performance monitoring", "Regular reporting"]
   },
   {
-    icon: Globe,
     title: "Singapore Hub Advantages",
     why: "Benefit from Singapore's strategic location, robust legal framework, and favorable business environment for Asian expansion.",
     how: "We leverage Singapore's regulatory framework to secure capital flows through structured subsidiaries with strategic guidance and stakeholder reporting.",
-    image: "/singapore-marina-bay-financial-district-aerial-vie.jpg",
+    image: "/professional-singapore-business-district-skyline-w.jpg",
     details: ["Singapore legal framework", "Secure capital transfer", "Strategic guidance", "Regulatory compliance"]
   },
   {
-    icon: Target,
     title: "Complete Exit Strategy Management",
     why: "Professional exit planning from Day 1 with multiple routes: trade sales, management buyouts, asset liquidation for maximum returns.",
     how: "We implement strategic positioning and value maximization techniques, ensuring clean divestment processes and optimized return distribution to investors.",
-    image: "/upward-trending-business-growth-chart-with-vietnam.jpg",
+    image: "/Vietnam-Singapore-Partnership-Advances-with-Focus-on-Sustainability-Investment-and-Trade.jpg",
     details: ["Exit strategy planning", "Strategic positioning", "Value maximization", "Return distribution"]
   },
 ]
 
 export function PartnershipApproach() {
   return (
-    <section id="about" className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section
+      id="about"
+      className="py-16 sm:py-20 relative"
+      style={{
+        backgroundImage: 'url(/singapore-marina-bay-financial-district-aerial-vie.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-white/95 backdrop-blur-sm"></div>
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
             Our Partnership Approach
@@ -63,10 +68,7 @@ export function PartnershipApproach() {
                     />
                   </div>
                   <div className="p-8">
-                    <div className="flex items-center gap-x-4 mb-6">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r from-primary to-primary/80">
-                        <approach.icon className="h-7 w-7 text-primary-foreground" aria-hidden="true" />
-                      </div>
+                    <div className="mb-6">
                       <h3 className="text-xl font-bold leading-7 text-foreground">{approach.title}</h3>
                     </div>
 

@@ -1,11 +1,11 @@
 "use client"
 
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Building2, Users, Handshake } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 export function FundingDiagram() {
   return (
-    <section className="py-24 sm:py-32 bg-gradient-to-b from-muted/30 to-muted/60">
+    <section className="py-16 sm:py-20 bg-gradient-to-b from-muted/30 to-muted/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Vortex Capital Funding Structure</h2>
@@ -21,7 +21,6 @@ export function FundingDiagram() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <Card className="w-full md:w-64 h-32 border-2 border-primary/20 hover:border-primary transition-all duration-300 hover:shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
-                  <Users className="w-8 h-8 text-primary mb-2" />
                   <h4 className="font-semibold text-foreground">P1 - Lender</h4>
                   <p className="text-sm text-muted-foreground text-center">Primary Capital Provider</p>
                 </CardContent>
@@ -31,7 +30,6 @@ export function FundingDiagram() {
 
               <Card className="w-full md:w-64 h-32 border-2 border-accent/30 hover:border-accent transition-all duration-300 bg-gradient-to-br from-accent/10 to-accent/20 hover:shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
-                  <Building2 className="w-8 h-8 text-accent-foreground mb-2" />
                   <h4 className="font-semibold text-foreground">P2 - Vortex Capital</h4>
                   <p className="text-sm text-muted-foreground text-center">Investment Facilitator</p>
                 </CardContent>
@@ -41,7 +39,6 @@ export function FundingDiagram() {
 
               <Card className="w-full md:w-64 h-32 border-2 border-primary/20 hover:border-primary transition-all duration-300 hover:shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
-                  <Building2 className="w-8 h-8 text-primary mb-2" />
                   <h4 className="font-semibold text-foreground">P3 - Project Subsidiary</h4>
                   <p className="text-sm text-muted-foreground text-center">Dedicated Project Entity</p>
                 </CardContent>
@@ -55,7 +52,6 @@ export function FundingDiagram() {
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <Card className="w-full md:w-64 h-32 border-2 border-primary/20 hover:border-primary transition-all duration-300 hover:shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
-                  <Users className="w-8 h-8 text-primary mb-2" />
                   <h4 className="font-semibold text-foreground">P1 - Borrower</h4>
                   <p className="text-sm text-muted-foreground text-center">Project Initiator</p>
                 </CardContent>
@@ -65,7 +61,6 @@ export function FundingDiagram() {
 
               <Card className="w-full md:w-64 h-32 border-2 border-primary/20 hover:border-primary transition-all duration-300 hover:shadow-lg">
                 <CardContent className="flex flex-col items-center justify-center h-full p-4">
-                  <Building2 className="w-8 h-8 text-primary mb-2" />
                   <h4 className="font-semibold text-foreground">P2 - JV Subsidiary</h4>
                   <p className="text-sm text-muted-foreground text-center">Collateral Provider</p>
                 </CardContent>
@@ -81,20 +76,17 @@ export function FundingDiagram() {
               <div className="flex flex-col md:flex-row items-center justify-center gap-8">
                 <Card className="w-full md:w-80 h-40 border-2 border-primary/30 bg-primary/5 hover:shadow-lg transition-all duration-300">
                   <CardContent className="flex flex-col items-center justify-center h-full p-6">
-                    <Building2 className="w-10 h-10 text-primary mb-3" />
                     <h4 className="font-semibold text-foreground mb-2">P3 Lender Side</h4>
                     <p className="text-sm text-muted-foreground text-center">Project Subsidiary Entity</p>
                   </CardContent>
                 </Card>
 
                 <div className="flex flex-col items-center">
-                  <Handshake className="w-12 h-12 text-accent mb-2" />
                   <span className="text-lg font-semibold text-primary">Joint Venture</span>
                 </div>
 
                 <Card className="w-full md:w-80 h-40 border-2 border-primary/30 bg-primary/5 hover:shadow-lg transition-all duration-300">
                   <CardContent className="flex flex-col items-center justify-center h-full p-6">
-                    <Building2 className="w-10 h-10 text-primary mb-3" />
                     <h4 className="font-semibold text-foreground mb-2">P2 Borrower Side</h4>
                     <p className="text-sm text-muted-foreground text-center">JV Subsidiary with Assets</p>
                   </CardContent>
@@ -106,23 +98,14 @@ export function FundingDiagram() {
           {/* Key Benefits */}
           <div className="mt-16 grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Building2 className="w-8 h-8 text-primary" />
-              </div>
               <h4 className="font-semibold text-foreground mb-2">Risk Mitigation</h4>
               <p className="text-muted-foreground">Structured subsidiary approach minimizes exposure for all parties</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Handshake className="w-8 h-8 text-accent-foreground" />
-              </div>
               <h4 className="font-semibold text-foreground mb-2">Asset Security</h4>
               <p className="text-muted-foreground">Collateral assets provide additional security for lenders</p>
             </div>
             <div className="text-center">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
               <h4 className="font-semibold text-foreground mb-2">Regulatory Compliance</h4>
               <p className="text-muted-foreground">Structure ensures compliance across Singapore and Vietnam</p>
             </div>

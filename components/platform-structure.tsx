@@ -1,10 +1,10 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Building2, Users, Briefcase } from "lucide-react"
+import { ArrowRight, Building2, Users, Briefcase, Shield, TrendingUp, FileCheck } from "lucide-react"
 
 export function PlatformStructure() {
   return (
-    <section className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-slate-50">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Platform Structure</h2>
           <p className="mt-6 text-lg leading-8 text-muted-foreground">
@@ -71,36 +71,24 @@ export function PlatformStructure() {
 
         <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Building2 className="h-8 w-8 text-primary" />
-            </div>
             <h3 className="text-lg font-semibold text-foreground mb-3">Project-Specific Subsidiaries</h3>
             <p className="text-muted-foreground text-sm">
               Each investment gets its own dedicated subsidiary structure for maximum risk isolation
             </p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Users className="h-8 w-8 text-green-600" />
-            </div>
             <h3 className="text-lg font-semibold text-foreground mb-3">Asset-Backed Security</h3>
             <p className="text-muted-foreground text-sm">
               Vietnamese companies create asset-backed subsidiaries with land, equipment, and inventory collateral
             </p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Briefcase className="h-8 w-8 text-blue-600" />
-            </div>
             <h3 className="text-lg font-semibold text-foreground mb-3">Tax Efficiency</h3>
             <p className="text-muted-foreground text-sm">
               Singapore's favorable tax treaties and business-friendly environment optimize returns for all stakeholders
             </p>
           </div>
           <div className="text-center">
-            <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <ArrowRight className="h-8 w-8 text-purple-600" />
-            </div>
             <h3 className="text-lg font-semibold text-foreground mb-3">Regulatory Compliance</h3>
             <p className="text-muted-foreground text-sm">
               Robust legal framework ensures full compliance with both Singapore and Vietnamese regulations

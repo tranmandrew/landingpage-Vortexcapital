@@ -1,7 +1,9 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 
@@ -10,13 +12,14 @@ const navigation = [
   { label: "About", href: "#about" },
   { label: "Team", href: "#team" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Contact", href: "#contact-form" },
+  { label: "Contact", href: "/contact" },
 ]
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const pathname = usePathname()
 
 
   // Handle scroll effects
@@ -25,22 +28,27 @@ export function Header() {
       const scrollPosition = window.scrollY
       setScrolled(scrollPosition > 50)
 
-      // Determine active section based on scroll position
-      const sections = navigation.map(item => ({
-        id: item.href.slice(1),
-        element: document.querySelector(item.href)
-      }))
+      // Only handle section detection on the home page
+      if (pathname === '/') {
+        // Determine active section based on scroll position
+        const sections = navigation
+          .filter(item => item.href.startsWith('#')) // Only process anchor links
+          .map(item => ({
+            id: item.href.slice(1),
+            element: document.querySelector(item.href)
+          }))
 
-      const current = sections.find(section => {
-        if (section.element) {
-          const rect = section.element.getBoundingClientRect()
-          return rect.top <= 100 && rect.bottom >= 100
+        const current = sections.find(section => {
+          if (section.element) {
+            const rect = section.element.getBoundingClientRect()
+            return rect.top <= 100 && rect.bottom >= 100
+          }
+          return false
+        })
+
+        if (current) {
+          setActiveSection(current.id)
         }
-        return false
-      })
-
-      if (current) {
-        setActiveSection(current.id)
       }
     }
 
@@ -79,8 +87,15 @@ export function Header() {
     }`}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-8">
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="text-2xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+          <Link href="#" className="-m-1.5 p-1.5 flex items-center gap-3">
+            <Image
+              src="/BWLOGO.png"
+              alt="Vortex Capital Logo"
+              width={40}
+              height={40}
+              className="h-10 w-auto object-contain"
+            />
+            <span className="text-2xl font-black bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
               Vortex Capital
             </span>
           </Link>
@@ -97,11 +112,13 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:gap-x-8">
           {navigation.map((item) => {
-            const isActive = activeSection === item.href.slice(1)
+            const isActive = item.href.startsWith('#')
+              ? pathname === '/' && activeSection === item.href.slice(1)
+              : pathname === item.href
             return (
               <Link
                 key={item.label}
-                href={item.href}
+                href={item.href.startsWith('#') && pathname !== '/' ? `/${item.href}` : item.href}
                 className={`relative text-sm font-semibold leading-6 px-3 py-2 rounded-lg transition-all duration-300 group ${
                   isActive
                     ? 'text-primary bg-primary/5 border-b-2 border-accent'
@@ -118,7 +135,7 @@ export function Header() {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Button asChild className="btn-premium bg-gradient-to-r from-accent to-accent/90 text-accent-foreground font-semibold shadow-lg shadow-accent/20 hover:shadow-accent/30 hover:scale-105 transform transition-all duration-200 ring-2 ring-transparent hover:ring-accent/20">
-            <Link href="#contact-form">Partner With Us</Link>
+            <Link href="/contact">Partner With Us</Link>
           </Button>
         </div>
       </nav>
@@ -138,8 +155,15 @@ export function Header() {
         }`}>
           {/* Header */}
           <div className="flex items-center justify-between mb-8">
-            <Link href="#" className="-m-1.5 p-1.5" onClick={() => setMobileMenuOpen(false)}>
-              <span className="text-xl font-bold bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+            <Link href="#" className="-m-1.5 p-1.5 flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+              <Image
+                src="/BWLOGO.png"
+                alt="Vortex Capital Logo"
+                width={32}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-xl font-black bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
                 Vortex Capital
               </span>
             </Link>
@@ -156,11 +180,13 @@ export function Header() {
           {/* Navigation Links */}
           <div className="space-y-2 mb-8">
             {navigation.map((item, index) => {
-              const isActive = activeSection === item.href.slice(1)
+              const isActive = item.href.startsWith('#')
+                ? pathname === '/' && activeSection === item.href.slice(1)
+                : pathname === item.href
               return (
                 <Link
                   key={item.label}
-                  href={item.href}
+                  href={item.href.startsWith('#') && pathname !== '/' ? `/${item.href}` : item.href}
                   className={`block rounded-lg px-4 py-3 text-base font-semibold transition-all duration-300 ease-out transform opacity-100 translate-y-0 ${
                     isActive
                       ? 'text-primary bg-primary/10'
@@ -176,7 +202,7 @@ export function Header() {
 
           {/* CTA Button */}
           <Button asChild className="w-full bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-300 ease-out transform opacity-100 translate-y-0">
-            <Link href="#contact-form" onClick={() => setMobileMenuOpen(false)}>
+            <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>
               Partner With Us
             </Link>
           </Button>

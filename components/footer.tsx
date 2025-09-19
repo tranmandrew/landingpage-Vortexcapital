@@ -6,7 +6,7 @@ const navigation = {
     { name: "About Us", href: "#about" },
     { name: "Team", href: "#team" },
     { name: "Portfolio", href: "#portfolio" },
-    { name: "Contact", href: "#contact-form" },
+    { name: "Contact", href: "/contact" },
   ],
   legal: [
     { name: "Privacy Policy", href: "/privacy" },

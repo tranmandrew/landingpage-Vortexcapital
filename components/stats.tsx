@@ -30,7 +30,7 @@ const stats = [
 
 export function Stats() {
   return (
-    <section id="portfolio" className="py-24 sm:py-32 bg-gradient-to-b from-background to-muted/20">
+    <section id="portfolio" className="py-16 sm:py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Proven Track Record</h2>
@@ -43,10 +43,7 @@ export function Stats() {
             {stats.map((stat) => (
               <Card key={stat.label} className="bg-background border-2 border-border/50 shadow-lg hover:shadow-xl hover:border-primary/20 transition-all duration-300 group">
                 <CardContent className="p-8 text-center">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-primary/80 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <stat.icon className="w-6 h-6 text-primary-foreground" />
-                  </div>
-                  <dd className="text-4xl font-bold tracking-tight text-primary sm:text-5xl mb-2">{stat.value}</dd>
+                  <dd className="text-4xl font-bold tracking-tight text-primary sm:text-5xl mb-3">{stat.value}</dd>
                   <dt className="text-base leading-7 text-foreground font-semibold mb-2">{stat.label}</dt>
                   <p className="text-sm text-muted-foreground">{stat.description}</p>
                 </CardContent>

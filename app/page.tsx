@@ -7,7 +7,7 @@ import { RevenueModel } from "@/components/revenue-model"
 import { Team } from "@/components/team"
 import { Stats } from "@/components/stats"
 import { Testimonials } from "@/components/testimonials"
-import { ContactForm } from "@/components/contact-form"
+import { CTASection } from "@/components/cta-section"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -22,7 +22,7 @@ export default function Home() {
       <Team />
       <Stats />
       <Testimonials />
-      <ContactForm />
+      <CTASection />
       <Footer />
     </main>
   )
