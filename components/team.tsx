@@ -5,7 +5,7 @@ import Image from "next/image"
 const teamMembers = [
   {
     name: "Andy Lang",
-    position: "Vietnam Country Manager",
+    position: "SEA Manager",
     department: "Investment Strategy",
     bio: "Over 20+ years of experience in Southeast Asian markets and strategic partnerships.",
     image: "/AndyLangWhite.png",
