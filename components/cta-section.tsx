@@ -5,7 +5,17 @@ import { ArrowRight, Calendar } from "lucide-react"
 
 export function CTASection() {
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-gray-900 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-16 sm:py-20 relative overflow-hidden"
+      style={{
+        backgroundImage: 'url(/HD-wallpaper-saigon-city-sunset-skyscrapers-skyline-vietnam.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_3px_3px,_white_2px,_transparent_2px)] bg-[length:40px_40px]"></div>
       </div>
