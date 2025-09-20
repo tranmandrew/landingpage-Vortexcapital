@@ -18,6 +18,10 @@ export const metadata: Metadata = {
     "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies. Accelerating growth through strategic partnerships.",
   keywords: "investment, joint ventures, Singapore, Vietnam, strategic partnerships, capital deployment",
   authors: [{ name: "Vortex Capital" }],
+  metadataBase: new URL('https://landingpage-vortexcapital.vercel.app'),
+  alternates: {
+    canonical: '/',
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -32,12 +36,23 @@ export const metadata: Metadata = {
       "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies.",
     type: "website",
     locale: "en_US",
+    url: "https://landingpage-vortexcapital.vercel.app/",
+    siteName: "Vortex Capital",
+    images: [
+      {
+        url: "/VortexLongLogo1.png",
+        width: 1200,
+        height: 630,
+        alt: "Vortex Capital - Strategic Joint Ventures in Vietnam",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
     description:
       "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies.",
+    images: ["/VortexLongLogo1.png"],
   },
     generator: 'v0.app'
 }
