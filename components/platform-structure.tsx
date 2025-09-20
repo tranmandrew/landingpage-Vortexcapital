@@ -46,7 +46,7 @@ export function PlatformStructure() {
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-muted-foreground">
-                    Central platform managing multiple joint ventures with comprehensive risk management
+                    Central facilitator managing multiple joint ventures with comprehensive risk management
                   </p>
                 </CardContent>
               </Card>

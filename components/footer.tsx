@@ -27,7 +27,7 @@ export function Footer() {
                 Vortex Capital
               </span>
               <p className="mt-4 text-sm leading-6 text-muted-foreground max-w-md">
-                Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese
+                Singapore's premier investment facilitator specializing in strategic joint ventures with Vietnamese
                 companies. Creating value through strategic partnerships.
               </p>
             </div>

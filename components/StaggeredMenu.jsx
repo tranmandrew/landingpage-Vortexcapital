@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import './StaggeredMenu.css';
 
@@ -298,6 +299,18 @@ export const StaggeredMenu = ({
     });
   }, []);
 
+  const closeMenu = useCallback(() => {
+    if (openRef.current) {
+      openRef.current = false;
+      setOpen(false);
+      onMenuClose?.();
+      playClose();
+      animateIcon(false);
+      animateColor(false);
+      animateText(false);
+    }
+  }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
+
   const toggleMenu = useCallback(() => {
     const target = !openRef.current;
     openRef.current = target;
@@ -313,6 +326,13 @@ export const StaggeredMenu = ({
     animateColor(target);
     animateText(target);
   }, [playOpen, playClose, animateIcon, animateColor, animateText, onMenuOpen, onMenuClose]);
+
+  const handleMenuItemClick = useCallback((e) => {
+    // Small delay to allow the click to register before closing
+    setTimeout(() => {
+      closeMenu();
+    }, 150);
+  }, [closeMenu]);
 
   return (
     <div
@@ -333,7 +353,7 @@ export const StaggeredMenu = ({
         })()}
       </div>
       <header className="staggered-menu-header" aria-label="Main navigation header">
-        <a href="/" className="sm-logo" aria-label="Go to home page">
+        <Link href="/" className="sm-logo" aria-label="Go to home page">
           <img
             src={logoUrl || '/src/assets/logos/reactbits-gh-white.svg'}
             alt="Vortex Capital Logo"
@@ -342,7 +362,7 @@ export const StaggeredMenu = ({
             width={252}
             height={84}
           />
-        </a>
+        </Link>
         <button
           ref={toggleBtnRef}
           className="sm-toggle"
@@ -374,9 +394,16 @@ export const StaggeredMenu = ({
             {items && items.length ? (
               items.map((it, idx) => (
                 <li className="sm-panel-itemWrap" key={it.label + idx}>
-                  <a className="sm-panel-item" href={it.link} aria-label={it.ariaLabel} data-index={idx + 1}>
+                  <Link
+                    className="sm-panel-item"
+                    href={it.link}
+                    aria-label={it.ariaLabel}
+                    data-index={idx + 1}
+                    onClick={handleMenuItemClick}
+                    prefetch={true}
+                  >
                     <span className="sm-panel-itemLabel">{it.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))
             ) : (
@@ -393,7 +420,13 @@ export const StaggeredMenu = ({
               <ul className="sm-socials-list" role="list">
                 {socialItems.map((s, i) => (
                   <li key={s.label + i} className="sm-socials-item">
-                    <a href={s.link} target="_blank" rel="noopener noreferrer" className="sm-socials-link">
+                    <a
+                      href={s.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="sm-socials-link"
+                      onClick={handleMenuItemClick}
+                    >
                       {s.label}
                     </a>
                   </li>

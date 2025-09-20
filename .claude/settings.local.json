@@ -6,7 +6,9 @@
       "Bash(pkill:*)",
       "Bash(taskkill:*)",
       "Bash(pnpm build:*)",
-      "Bash(del \"C:\\Users\\user\\Documents\\vortex-capital\\components\\value-proposition.tsx\")"
+      "Bash(del \"C:\\Users\\user\\Documents\\vortex-capital\\components\\value-proposition.tsx\")",
+      "Bash(del \"C:\\Users\\user\\Documents\\vortex-capital\\components\\ui\\use-toast.ts\")",
+      "Bash(del \"C:\\Users\\user\\Documents\\vortex-capital\\components\\ui\\use-mobile.tsx\")"
     ],
     "deny": [],
     "ask": []

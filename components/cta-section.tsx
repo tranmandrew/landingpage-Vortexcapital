@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Calendar } from "lucide-react"
@@ -8,13 +9,15 @@ export function CTASection() {
     <section
       id="contact"
       className="py-16 sm:py-20 relative overflow-hidden"
-      style={{
-        backgroundImage: 'url(/HD-wallpaper-saigon-city-sunset-skyscrapers-skyline-vietnam.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
     >
+      <Image
+        src="/HD-wallpaper-saigon-city-sunset-skyscrapers-skyline-vietnam.jpg"
+        alt="Saigon city sunset skyline Vietnam"
+        fill
+        className="object-cover"
+        quality={80}
+        sizes="100vw"
+      />
       <div className="absolute inset-0 bg-black/50"></div>
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_3px_3px,_white_2px,_transparent_2px)] bg-[length:40px_40px]"></div>
@@ -29,7 +32,7 @@ export function CTASection() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                <Link href="/contact">
+                <Link href="/contact" prefetch={true}>
                   Start Partnership Discussion
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -40,7 +43,7 @@ export function CTASection() {
                 variant="outline"
                 className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary bg-transparent"
               >
-                <Link href="/contact">
+                <Link href="/contact" prefetch={true}>
                   <Calendar className="mr-2 h-4 w-4" />
                   Schedule a Meeting
                 </Link>

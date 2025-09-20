@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { User } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import StaggeredMenu from "@/components/StaggeredMenu"
 import { Footer } from "@/components/footer"
 
@@ -63,7 +64,7 @@ export default function TeamPage() {
           { label: 'Home', ariaLabel: 'Go to home page', link: '/' },
           { label: 'About', ariaLabel: 'Learn about us', link: '/#about' },
           { label: 'Team', ariaLabel: 'Meet our team', link: '/team' },
-          { label: 'Portfolio', ariaLabel: 'View our portfolio', link: '/#portfolio' },
+          { label: 'Portfolio', ariaLabel: 'View our portfolio', link: '/portfolio' },
           { label: 'Structure', ariaLabel: 'View our structure', link: '/structure' },
           { label: 'Contact', ariaLabel: 'Get in touch', link: '/contact' }
         ]}
@@ -115,6 +116,8 @@ export default function TeamPage() {
                             alt={`${member.name} - ${member.position}`}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            priority={index < 2}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                           />
                         )}
                       </div>
@@ -191,12 +194,13 @@ export default function TeamPage() {
                 <p className="text-muted-foreground mb-4 max-w-2xl mx-auto text-sm">
                   Our experienced professionals are ready to guide you through every step of your Vietnamese market entry strategy.
                 </p>
-                <a
+                <Link
                   href="/contact"
                   className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-primary-foreground bg-primary hover:bg-primary/90 transition-colors"
+                  prefetch={true}
                 >
                   Schedule a Consultation
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -96,7 +96,7 @@ export function PartnershipApproach() {
 
             {/* Content Display */}
             <div className="lg:w-2/3">
-              <Card className="overflow-hidden shadow-xl h-[550px] flex flex-col border-0">
+              <Card className="overflow-hidden shadow-xl min-h-[550px] flex flex-col border-0">
                 <CardContent className="p-0 flex-1 flex flex-col m-0">
                   <div className="aspect-[21/9] overflow-hidden relative flex-shrink-0">
                     <img
@@ -113,8 +113,8 @@ export function PartnershipApproach() {
                     </div>
                   </div>
 
-                  <div className="p-4 flex-1 overflow-hidden">
-                    <div className="space-y-4 h-full overflow-y-auto">
+                  <div className="p-4 flex-1">
+                    <div className="space-y-3">
                       <div className="opacity-0 animate-[fadeInUp_0.5s_ease-out_0.1s_forwards]" key={`why-${activeTab}`}>
                         <h4 className="text-sm font-semibold text-primary uppercase tracking-wider mb-2 flex items-center">
                           <div className="w-2 h-2 bg-primary rounded-full mr-2"></div>
@@ -131,13 +131,13 @@ export function PartnershipApproach() {
                         <p className="text-muted-foreground leading-6 text-sm">{partnershipApproach[activeTab].how}</p>
                       </div>
 
-                      <div className="pt-4 border-t border-border/50 opacity-0 animate-[fadeInUp_0.5s_ease-out_0.3s_forwards]" key={`details-${activeTab}`}>
-                        <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-3">Key Features</h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      <div className="pt-3 border-t border-border/50 opacity-0 animate-[fadeInUp_0.5s_ease-out_0.3s_forwards]" key={`details-${activeTab}`}>
+                        <h4 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-2">Key Features</h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
                           {partnershipApproach[activeTab].details.map((detail, idx) => (
-                            <div key={idx} className="flex items-center text-xs text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0"></div>
-                              <span>{detail}</span>
+                            <div key={idx} className="flex items-start text-xs text-muted-foreground">
+                              <div className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0 mt-1.5"></div>
+                              <span className="leading-tight">{detail}</span>
                             </div>
                           ))}
                         </div>

@@ -109,7 +109,7 @@ export function RevenueModel() {
           <div className="text-center">
             <Search className="h-8 w-8 text-primary mx-auto mb-3" />
             <h3 className="font-semibold text-foreground mb-2">Scalable Structure</h3>
-            <p className="text-sm text-muted-foreground">Revenue grows with platform expansion</p>
+            <p className="text-sm text-muted-foreground">Revenue grows with facilitator expansion</p>
           </div>
         </div>
       </div>

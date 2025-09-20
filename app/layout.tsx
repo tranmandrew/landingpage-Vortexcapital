@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import { Toaster } from "@/components/ui/sonner"
+import { LoadingTransition } from "@/components/loading-transition"
 import "./globals.css"
 
 export const viewport: Viewport = {
@@ -15,7 +16,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
   description:
-    "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies. Accelerating growth through strategic partnerships.",
+    "Singapore's premier investment facilitator specializing in strategic joint ventures with Vietnamese companies. Accelerating growth through strategic partnerships.",
   keywords: "investment, joint ventures, Singapore, Vietnam, strategic partnerships, capital deployment",
   authors: [{ name: "Vortex Capital" }],
   metadataBase: new URL('https://landingpage-vortexcapital.vercel.app'),
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
     description:
-      "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies.",
+      "Singapore's premier investment facilitator specializing in strategic joint ventures with Vietnamese companies.",
     type: "website",
     locale: "en_US",
     url: "https://landingpage-vortexcapital.vercel.app/",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
     description:
-      "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies.",
+      "Singapore's premier investment facilitator specializing in strategic joint ventures with Vietnamese companies.",
     images: ["https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png"],
   },
     generator: 'v0.app'
@@ -74,8 +75,14 @@ export default function RootLayout({
         <meta property="og:image:alt" content="Vortex Capital - Strategic Joint Ventures in Vietnam" />
         <meta name="twitter:image" content="https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png" />
         <meta name="twitter:image:alt" content="Vortex Capital - Strategic Joint Ventures in Vietnam" />
+        {/* Preload critical resources */}
+        <link rel="preload" href="/MarinaBaySands4k.jpg" as="image" />
+        <link rel="preload" href="/VortexLongLogo1.png" as="image" />
+        {/* DNS prefetch for external domains */}
+        <link rel="dns-prefetch" href="//linkedin.com" />
       </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <LoadingTransition />
         <Suspense fallback={null}>{children}</Suspense>
         <Toaster />
         <Analytics />
