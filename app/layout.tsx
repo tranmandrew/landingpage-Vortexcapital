@@ -40,10 +40,11 @@ export const metadata: Metadata = {
     siteName: "Vortex Capital",
     images: [
       {
-        url: "/VortexLongLogo1.png",
+        url: "https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png",
         width: 1200,
         height: 630,
         alt: "Vortex Capital - Strategic Joint Ventures in Vietnam",
+        type: "image/png",
       },
     ],
   },
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
     description:
       "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies.",
-    images: ["/VortexLongLogo1.png"],
+    images: ["https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png"],
   },
     generator: 'v0.app'
 }
@@ -64,6 +65,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Additional meta tags for WhatsApp and other social platforms */}
+        <meta property="og:image" content="https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="Vortex Capital - Strategic Joint Ventures in Vietnam" />
+        <meta name="twitter:image" content="https://landingpage-vortexcapital.vercel.app/VortexLongLogo1.png" />
+        <meta name="twitter:image:alt" content="Vortex Capital - Strategic Joint Ventures in Vietnam" />
+      </head>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
         <Suspense fallback={null}>{children}</Suspense>
         <Toaster />
