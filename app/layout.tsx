@@ -18,6 +18,14 @@ export const metadata: Metadata = {
     "Singapore's premier investment platform specializing in strategic joint ventures with Vietnamese companies. Accelerating growth through strategic partnerships.",
   keywords: "investment, joint ventures, Singapore, Vietnam, strategic partnerships, capital deployment",
   authors: [{ name: "Vortex Capital" }],
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' }
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
     title: "Vortex Capital - Strategic Joint Ventures in Vietnam",
     description:

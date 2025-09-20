@@ -107,7 +107,7 @@ export function Footer() {
           <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-border to-transparent"></div>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-xs leading-5 text-muted-foreground">
-              &copy; 2024 Vortex Capital Pte Ltd. All rights reserved.
+              &copy; 2025 Vortex Capital Pte Ltd. All rights reserved.
             </p>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-gradient-to-r from-accent to-accent/60"></div>

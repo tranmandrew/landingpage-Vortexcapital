@@ -4,48 +4,15 @@ import { User } from "lucide-react"
 import Image from "next/image"
 const teamMembers = [
   {
-    name: "Andy Lang",
-    position: "SEA Manager",
-    department: "Investment Strategy",
-    bio: "Over 20+ years of experience in Southeast Asian markets and strategic partnerships.",
+    name: "Andy Land",
+    position: "Chief Executive Officer & Managing Partner",
+    department: "Executive Leadership",
+    bio: "Experienced investment professional with deep expertise in Asian markets and cross-border transactions. Leading Vortex Capital's strategic initiatives across Singapore and Vietnam.",
     image: "/AndyLangWhite.png",
     linkedin: "https://www.linkedin.com/in/andyhlang/",
     email: "contact@vortexcapital.sg",
-    specialties: ["Vietnam Market", "Investment Strategy", "Cross-border M&A"],
+    specialties: ["Cross-border M&A", "Vietnamese Market Entry", "Risk Management"],
     achievements: "Led $200M+ in successful joint ventures"
-  },
-  {
-    name: "Evan Chin",
-    position: "Founder",
-    department: "General Partner",
-    bio: "Singaporean market expert with 15+ years of experience in Southeast Asian markets and strategic partnerships.",
-    image: "/EvanChin.png",
-    linkedin: "#",
-    email: "contact@vortexcapital.sg",
-    specialties: ["Legal Due Diligence", "Regulatory Compliance", "Asset Verification"],
-    achievements: "Vetted 100+ Vietnamese companies"
-  },
-  {
-    name: "Michael Nguyen",
-    position: "Vietnam Operations Director",
-    department: "Local Operations",
-    bio: "Native Vietnamese speaker with deep local market knowledge and extensive network of business contacts across key industries.",
-    image: "/placeholder-team-member.jpg",
-    linkedin: "#",
-    email: "contact@vortexcapital.sg",
-    specialties: ["Local Market Intelligence", "Business Development", "Cultural Bridge"],
-    achievements: "Built network of 500+ Vietnamese companies"
-  },
-  {
-    name: "David Lee",
-    position: "Chief Financial Officer",
-    department: "Financial Operations",
-    bio: "CPA with expertise in international finance and structured investments. Former senior manager at Big Four accounting firm with ASEAN focus.",
-    image: "/placeholder-team-member.jpg",
-    linkedin: "#",
-    email: "contact@vortexcapital.sg",
-    specialties: ["Financial Analysis", "Structured Finance", "Tax Optimization"],
-    achievements: "Optimized $50M+ in tax-efficient structures"
   }
 ]
 
@@ -63,7 +30,8 @@ export function Team() {
         </div>
 
         <div className="mx-auto mt-8 max-w-2xl sm:mt-10 lg:mt-12 lg:max-w-none">
-          <div className="grid max-w-xl grid-cols-1 gap-6 lg:max-w-none lg:grid-cols-2 xl:grid-cols-4">
+          <div className="flex justify-center">
+            <div className="max-w-sm">
             {teamMembers.map((member, index) => (
               <Card
                 key={member.name}
@@ -114,6 +82,7 @@ export function Team() {
                 </CardContent>
               </Card>
             ))}
+            </div>
           </div>
         </div>
 
